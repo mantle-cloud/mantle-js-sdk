@@ -1,0 +1,37 @@
+{
+  "name": "@orbis/react-native-channels",
+  "version": "1.0.12",
+  "description": "> TODO: description",
+  "author": "Matthew Ryan <drmatthewryan@gmail.com>",
+  "homepage": "https://github.com/drmatt/orbis#readme",
+  "license": "ISC",
+  "type": "module",
+  "main": "dist/index.js",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drmatt/orbis.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/orbis.test.js",
+    "build": "rollup -c",
+    "publish": "npm publish --registry http://localhost:4873"
+  },
+  "bugs": {
+    "url": "https://github.com/drmatt/orbis/issues"
+  },
+  "devDependencies": {
+    "@ampproject/rollup-plugin-closure-compiler": "^0.27.0",
+    "rollup": "^3.17.2"
+  },
+  "dependencies": {
+    "@orbis/channels": "^1.0.4",
+    "react-native-sqlite-storage": "^6.0.1"
+  }
+}

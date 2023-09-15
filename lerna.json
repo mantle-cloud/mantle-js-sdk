@@ -1,0 +1,25 @@
+{
+  "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+  "useWorkspaces": true,
+  "version": "independent",
+  "npmClient": "yarn",
+  "packages": ["packages/**", "examples/**"],
+  "command": {
+    "version": {
+      "message": "release",
+      "yes": true,
+      "conventionalCommits": true,
+      "createRelease": "github",
+      "changelogPreset": "angular",
+      "granularPathspec": false
+    },
+    "publish": {
+      "ignoreChanges": ["*.md", ".test", ".snap"],
+      "message": "release: publish",
+      "registry": "npm.pkg.github.com",
+      "yes": true,
+      "conventionalCommits": true
+    }
+  },
+  "ignoreChanges": ["**/test/**"]
+}

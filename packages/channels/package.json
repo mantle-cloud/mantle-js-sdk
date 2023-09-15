@@ -1,0 +1,35 @@
+{
+  "name": "@orbis/channels",
+  "version": "1.0.8",
+  "description": "> TODO: description",
+  "author": "Matthew Ryan <drmatthewryan@gmail.com>",
+  "homepage": "https://github.com/drmatt/orbis#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "type": "module",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drmatt/orbis.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/orbis.test.js",
+    "build": "rollup -c",
+    "publish": "npm publish --registry http://localhost:4873"
+  },
+  "bugs": {
+    "url": "https://github.com/drmatt/orbis/issues"
+  },
+  "devDependencies": {
+    "@ampproject/rollup-plugin-closure-compiler": "^0.27.0",
+    "rollup": "^3.15.0",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4"
+  }
+}

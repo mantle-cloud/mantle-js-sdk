@@ -1,0 +1,39 @@
+{
+  "name": "@orbis/react-channels",
+  "version": "1.0.0",
+  "description": "> TODO: description",
+  "author": "Matthew Ryan <drmatthewryan@gmail.com>",
+  "homepage": "https://github.com/drmatt/orbis#readme",
+  "license": "ISC",
+  "main": "dist/index.js",
+  "type": "module",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/drmatt/orbis.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/orbis.test.js",
+    "build": "rollup -c",
+    "publish": "npm publish --registry http://localhost:4873"
+  },
+  "bugs": {
+    "url": "https://github.com/drmatt/orbis/issues"
+  },
+  "devDependencies": {
+    "rollup": "^3.17.2",
+    "ts-loader": "^9.4.2",
+    "typescript": "^4.9.4",
+    "webpack": "^5.75.0",
+    "webpack-cli": "^5.0.1"
+  },
+  "peerDependencies": {
+    "react": "*"
+  }
+}
