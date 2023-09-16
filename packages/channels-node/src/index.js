@@ -1,4 +1,5 @@
-import { Channels, Size, Duration } from "@orbis/channels";
+import { Channels, Duration, Size } from "@mantle-cloud/channels-core";
+
 import { NodeStorage } from "./NodeStorage";
 import { NodeWebSocket } from "./NodeWebsocket";
 

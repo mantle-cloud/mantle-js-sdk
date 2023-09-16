@@ -1,6 +1,6 @@
-import { Duration } from "../Duration.js";
 import { Channel } from "../Channel.js";
 import { ChannelServer } from "../ChannelServer.js";
+import { Duration } from "../Duration.js";
 
 class LocalServer extends ChannelServer {
   channels = {};
@@ -12,7 +12,7 @@ class LocalServer extends ChannelServer {
   }
 
   async connect(channelId) {
-    // console.log("LocalServer connect!", orbis, channelId, storage);
+    // console.log("LocalServer connect!", mantle, channelId, storage);
     let channel = new LocalChannel(this, channelId, this._storage);
     await channel.connect();
     return channel;

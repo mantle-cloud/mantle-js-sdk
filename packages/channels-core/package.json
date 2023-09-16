@@ -1,6 +1,6 @@
 {
   "name": "@mantle-cloud/channels-core",
-  "version": "1.0.8",
+  "version": "1.0.0",
   "description": "Channels core",
   "author": "Matthew Ryan <drmatthewryan@gmail.com>",
   "homepage": "https://github.com/mantle-cloud/mantle-js-sdk",
@@ -19,7 +19,7 @@
     "url": "git+https://github.com/mantle-cloud/mantle-js-sdk.git"
   },
   "scripts": {
-    "test": "node ./__tests__/orbis.test.js",
+    "test": "node ./__tests__/mantle.test.js",
     "build": "rollup -c",
     "publish": "npm publish --registry http://localhost:4873"
   },

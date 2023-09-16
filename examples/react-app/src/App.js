@@ -1,13 +1,13 @@
-import Card from "react-bootstrap/Card";
+import { ConnectionStatus, Duration, channels } from "@mantle-cloud/channels-browser";
+import { useEffect, useMemo, useState } from "react";
+
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import ToggleButton from "react-bootstrap/ToggleButton";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
-import { channels, Duration, ConnectionStatus } from "@orbis/browser-channels";
-
-import { useState, useEffect, useMemo } from "react";
 
 const channelsConfig = {
   apiKey: "198asdfsdf2309821alsdij0iowje28",

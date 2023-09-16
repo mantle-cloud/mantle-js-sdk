@@ -1,11 +1,7 @@
-# `orbis`
-
-> TODO: description
+# `mantle`
 
 ## Usage
 
 ```
-const orbis = require('orbis');
-
 // TODO: DEMONSTRATE API
 ```

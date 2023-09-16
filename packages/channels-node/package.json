@@ -1,9 +1,9 @@
 {
-  "name": "@orbis/node-channels",
-  "version": "1.0.2",
+  "name": "@mantle-cloud/channels-node",
+  "version": "1.0.0",
   "description": "> TODO: description",
   "author": "Matthew Ryan <drmatthewryan@gmail.com>",
-  "homepage": "https://github.com/drmatt/orbis#readme",
+  "homepage": "https://github.com/mantle-cloud/mantle-js-sdk#readme",
   "license": "ISC",
   "main": "dist/index.js",
   "type": "module",
@@ -16,15 +16,15 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/drmatt/orbis.git"
+    "url": "git+https://github.com/mantle-cloud/mantle-js-sdk.git"
   },
   "scripts": {
-    "test": "node ./__tests__/orbis.test.js",
+    "test": "node ./__tests__/mantle.test.js",
     "build": "rollup -c",
     "publish": "npm publish --registry http://localhost:4873"
   },
   "bugs": {
-    "url": "https://github.com/drmatt/orbis/issues"
+    "url": "https://github.com/mantle-cloud/mantle-js-sdk/issues"
   },
   "devDependencies": {
     "rollup": "^3.17.2",

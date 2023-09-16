@@ -1,8 +1,6 @@
-// import { channels, Duration } from "@orbis/node-channels";
-
-import { channels, Duration, Size } from "@orbis/node-channels";
-
 import * as readline from "readline";
+
+import { Duration, Size, channels } from "@mantle-cloud/channels-node";
 
 const rl = readline.createInterface({
   input: process.stdin,

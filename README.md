@@ -1,2 +1,3 @@
-# orbis
-Client libraries for Orbis dev tools
+# mantle
+
+JavaScript libraries for Mantle cloud
