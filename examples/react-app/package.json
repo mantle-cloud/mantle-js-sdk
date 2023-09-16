@@ -1,6 +1,7 @@
 {
   "name": "@mantle-cloud/example-react",
-  "version": "1.0.1",
+  "version": "1.0.0",
+  "license": "ISC",
   "private": true,
   "dependencies": {
     "@mantle-cloud/channels-browser": "^1.1.0",

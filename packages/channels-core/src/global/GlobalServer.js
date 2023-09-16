@@ -1,6 +1,5 @@
 import { ChannelServer } from "../ChannelServer.js";
 import { ConnectionStatus } from "../Channels.js";
-import { Duration } from "../../dist/index.js";
 import { EventEmitter } from "eventemitter3";
 
 const Status = {
