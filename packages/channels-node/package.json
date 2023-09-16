@@ -3,6 +3,7 @@
   "version": "1.3.0",
   "description": "> TODO: description",
   "author": "Matthew Ryan <drmatthewryan@gmail.com>",
+  "private": true,
   "homepage": "https://github.com/mantle-cloud/mantle-js-sdk#readme",
   "license": "ISC",
   "main": "dist/index.js",
@@ -38,5 +39,5 @@
     "sqlite3": "^5.1.4",
     "ws": "^8.13.0"
   },
-  "gitHead": "36058f35116c1b6e00af565546677502f0d22aaa"
+  "gitHead": "fe26cef745e2716d4814929eef4a6eff19190187"
 }
