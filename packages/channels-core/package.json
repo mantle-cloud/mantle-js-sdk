@@ -1,6 +1,6 @@
 {
   "name": "@mantle-cloud/channels-core",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Channels core",
   "author": "Matthew Ryan <drmatthewryan@gmail.com>",
   "private": true,
