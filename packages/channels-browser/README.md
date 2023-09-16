@@ -1,10 +1,3 @@
-# `mantle`
+# `@mantle-cloud/channels-browser`
 
-> TODO: description
-
-## Usage
-
-```
-
-// TODO: DEMONSTRATE API
-```
+SDK for Mantle channels, for use in a browser.

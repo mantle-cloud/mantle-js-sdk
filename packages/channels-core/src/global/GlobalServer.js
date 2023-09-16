@@ -1,7 +1,7 @@
 import { ChannelServer } from "../ChannelServer.js";
-import { EventEmitter } from "eventemitter3";
 import { ConnectionStatus } from "../Channels.js";
 import { Duration } from "../../dist/index.js";
+import { EventEmitter } from "eventemitter3";
 
 const Status = {
   InProgress: 0,
@@ -243,40 +243,9 @@ class GlobalServer extends ChannelServer {
     });
   }
 
-  // async sendAuthRequest() {
-  //   return new Promise((resolve, reject) => {
-  //     const operation = this.addOperation(resolve, reject);
-  //     let msg = {
-  //       cmd: "signInAnonymously",
-  //       operationId: operation.id,
-  //       ...credentials,
-  //     };
-  //     this._ws.send(JSON.stringify(msg));
-  //   });
-  // }
-
   async authenticate(resolve, reject) {
-    // await this.catch((drops) => {
-    //   console.log("Got response,", drops);
-    //   if (drops?.length > 0) {
-    //     const drop = drops[0];
-    //     if (drop.data.jwt) {
-    //       this._accessToken = drop.data.jwt;
-    //       this._connectionStatus = ConnectionStatus.Connected;
-    //       this._eventEmmiter.emit(this._connectionStatus);
-    //     }
-
-    //     resolve();
-    //   }
-    //   // else {
-    //   //   reject();
-    //   // }
-    // }, "@auth/response");
-
     this._connectionStatus = ConnectionStatus.Authenticating;
     this._eventEmmiter.emit(this._connectionStatus);
-
-    console.log("CREDENTIALS", "authenticate...");
 
     try {
       const response = await this.clientAuth(this._credentials);
@@ -293,63 +262,6 @@ class GlobalServer extends ChannelServer {
 
       reject(e);
     }
-    // this.drop("@auth/login", Duration.Instant, {
-    //   apiKey: "123909230",
-    //   projectId: "react-app-12903",
-    // });
-
-    // try {
-    //   var userCredentials = await this._storage.getUserCredentials();
-
-    //   if (userCredentials) {
-    //     const response = this.signInAnonymously(userCredentials);
-    //     console.log(">>AUTH response", response);
-
-    //     const credentials = {
-    //       uid: response.uid,
-    //       accessToken: response.accessToken,
-    //       refreshToken: response.refreshToken,
-    //     };
-
-    //     console.log("credentials", credentials);
-
-    //     this._connectionStatus = ConnectionStatus.Connected;
-    //     this._eventEmmiter.emit(this._connectionStatus);
-    //   } else {
-    //     const response = await this.createAnonymousUser();
-    //     console.log(">>AUTH response", response);
-
-    //     const credentials = {
-    //       uid: response.uid,
-    //       accessToken: response.accessToken,
-    //       refreshToken: response.refreshToken,
-    //     };
-
-    //     console.log("credentials", credentials);
-
-    //     await this._storage.saveUserCredentials(credentials);
-
-    //     this._connectionStatus = ConnectionStatus.Connected;
-    //     this._eventEmmiter.emit(this._connectionStatus);
-    //   }
-    //   // if (!userCredentials) {
-    //   //   // register the new anonymous user
-    //   //   // call the server to create a new user
-    //   //   // get the uid and refreshToken back
-    //   //   // save them here....
-
-    //   //   // await this._storage.saveUserCredentials({
-    //   //   //   uid: "129309",
-    //   //   //   accessToken: "19093",
-    //   //   //   refreshToken: "q29-9wq-re0",
-    //   //   // });
-    //   // }
-    // } catch (e) {
-    //   console.error("unable to get credentials", e);
-
-    //   this._connectionStatus = ConnectionStatus.Error;
-    //   this._eventEmmiter.emit(this._connectionStatus);
-    // }
   }
 
   async connectToServer() {
@@ -378,12 +290,6 @@ class GlobalServer extends ChannelServer {
 
           console.log("RECV [error] ", data, operation);
           operation.reject(new Error(`${data.name} [${data.code}] ${data.details}`));
-          // const c = this._catches[data.catchId];
-          // if (c) {
-          //   const updateTime = Date.now() - this._sendTime;
-
-          //   c.listener(null, data, { updateTime, catchId: data.catchId });
-          // }
         } else {
           console.log("RECV ", data);
         }

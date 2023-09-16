@@ -1,10 +1,3 @@
-# `mantle`
+# `@mantle-cloud/channels-core`
 
-> TODO: description
-
-## Usage
-
-```
-
-// TODO: DEMONSTRATE API
-```
+Core JavaScript SDK for Mantle channels.

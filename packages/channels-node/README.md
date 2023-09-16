@@ -1,10 +1,3 @@
-# `mantle`
+# `@mantle-cloud/channels-node`
 
-> TODO: description
-
-## Usage
-
-```
-
-// TODO: DEMONSTRATE API
-```
+JavaScript SDK for Mantle channels, for use in Node environment.
