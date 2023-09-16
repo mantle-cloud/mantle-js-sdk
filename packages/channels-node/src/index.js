@@ -7,7 +7,7 @@ const storage = new NodeStorage();
 
 const _channelsInstance = new Channels(storage, NodeWebSocket);
 
-console.log("channels-node");
+console.log("channels-node - 2");
 
 let channelsFunc = () => {
   return _channelsInstance;
