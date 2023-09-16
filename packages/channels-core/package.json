@@ -4,6 +4,7 @@
   "description": "Channels core",
   "author": "Matthew Ryan <drmatthewryan@gmail.com>",
   "homepage": "https://github.com/mantle-cloud/mantle-js-sdk",
+  "public": true,
   "license": "ISC",
   "main": "dist/index.js",
   "type": "module",
