@@ -4,7 +4,7 @@
   "license": "ISC",
   "private": true,
   "dependencies": {
-    "@mantle-cloud/channels-browser": "^1.1.0",
+    "@mantle-cloud/channels-core": "^1.0.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",

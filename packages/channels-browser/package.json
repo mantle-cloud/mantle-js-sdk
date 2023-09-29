@@ -5,7 +5,7 @@
   "author": "Matthew Ryan <drmatthewryan@gmail.com>",
   "homepage": "https://github.com/mantle-cloud/mantle-js-sdk#readme",
   "license": "ISC",
-  "main": "dist/index.js",
+  "exports": "./dist/index.js",
   "type": "module",
   "directories": {
     "src": "src",
@@ -31,5 +31,7 @@
   "dependencies": {
     "@ampproject/rollup-plugin-closure-compiler": "^0.27.0"
   },
-  "gitHead": "3c4c042f41ce7320799f46e488bb5f47d2b762ef"
+  "engines": {
+    "node": ">=14.13.1 || >=16.0.0"
+  }
 }

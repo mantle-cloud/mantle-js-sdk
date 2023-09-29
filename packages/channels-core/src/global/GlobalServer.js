@@ -236,7 +236,7 @@ class GlobalServer extends ChannelServer {
         cmd: "clientAuth",
         operationId: operation.id,
         apiKey: credentials.apiKey,
-        appId: credentials.appId,
+        projectId: credentials.projectId,
       };
       this._ws.send(JSON.stringify(msg));
     });

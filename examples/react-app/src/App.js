@@ -10,8 +10,8 @@ import ToggleButton from "react-bootstrap/ToggleButton";
 import ToggleButtonGroup from "react-bootstrap/ToggleButtonGroup";
 
 const channelsConfig = {
-  apiKey: "198asdfsdf2309821alsdij0iowje28",
-  appId: "my-react-app",
+  apiKey: "exbpycak82ggZh9imtWFCYb9LfbZJ7GoT7XzkMNgRO0",
+  projectId: "my-react-app",
   domain: "127.0.0.1",
   // port: 9080,
 };
