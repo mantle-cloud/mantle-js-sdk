@@ -1,11 +1,12 @@
 import { useChannels } from "@mantle-cloud/channels-react";
 import { useEffect, useState } from "react";
 
-import Button from "react-bootstrap/Button";
-import Card from "react-bootstrap/Card";
-import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
+
+import connectionDropImage from "./images/connection-drop.png";
+import foreverDropImage from "./images/forever-drop.png";
+import { Card, CardContent, TextField, Typography } from "@mui/material";
 
 const config = {
   projectId: "my-react-app",
@@ -24,13 +25,25 @@ const makeId = function (length) {
 
 function App() {
   const [userDrops, setUserDrops] = useState();
+  const [messageDrops, setMessageDrops] = useState();
   const [roomData, setRoomData] = useState();
+  const [message, setMessage] = useState("");
 
   const { error, endpoint, status, channels, Duration, ConnectionStatus } = useChannels({ config });
 
   useEffect(() => {
+    if (!roomData || !channels) return;
+    channels.drop(`${roomData?.scope}/users`, Duration.Connection, { user: makeId(5) });
+  }, [Duration.Connection, channels, roomData]);
+
+  useEffect(() => {
     if (!roomData) return;
     return channels.catch(setUserDrops, `${roomData.scope}/users`);
+  }, [channels, roomData]);
+
+  useEffect(() => {
+    if (!roomData) return;
+    return channels.catch(setMessageDrops, `${roomData.scope}/messages`);
   }, [channels, roomData]);
 
   useEffect(() => {
@@ -44,62 +57,103 @@ function App() {
   }, [ConnectionStatus.Connected, channels, status]);
 
   const users = userDrops && userDrops.map((drop) => <div>{JSON.stringify(drop.data)}</div>);
+  const messages = messageDrops && messageDrops.map((drop) => <div>{JSON.stringify(drop.data)}</div>);
 
   return (
     <Container>
       <h1>Status {status}</h1>
       <p>Error {error}</p>
       <p>Endpoint: {endpoint}</p>
+      <p>
+        Test room:
+        <Button
+          variant="contained"
+          onClick={() => {
+            channels.drop("@rooms/join", Duration.UntilCaught, { roomCode: "587303563" });
+          }}>
+          Join 587303563
+        </Button>
+      </p>
 
-      <Row style={{ marginTop: 20 }}>
-        <Col>
-          <Button
-            onClick={() => {
-              channels.drop("@rooms/create", Duration.UntilCaught);
-            }}>
-            Create Room
-          </Button>
+      <Button
+        variant="contained"
+        onClick={() => {
+          channels.drop("@rooms/create", Duration.UntilCaught);
+        }}>
+        Create Room
+      </Button>
 
-          <Button
-            onClick={() => {
-              channels.drop("@rooms/join", Duration.UntilCaught, { roomCode: roomData?.roomCode });
-            }}>
-            Join Room
-          </Button>
+      <Button
+        variant="contained"
+        onClick={() => {
+          channels.drop("@rooms/join", Duration.UntilCaught, { roomCode: roomData?.roomCode });
+        }}>
+        Join Room
+      </Button>
 
-          <input
-            value={roomData?.roomCode}
-            onChange={(event) => {
-              setRoomData({ ...roomData, roomCode: event.target.value });
-            }}
-          />
+      <input
+        value={roomData?.roomCode}
+        onChange={(event) => {
+          setRoomData({ ...roomData, roomCode: event.target.value });
+        }}
+      />
 
-          {roomData?.roomCode && (
-            <>
-              <Card style={{ width: "18rem" }}>
-                <Card.Body>
-                  <Card.Title>Users (Connection)</Card.Title>
-                  <Card.Subtitle className="mb-2 text-muted">
-                    Drops that only exist while client is connected
-                  </Card.Subtitle>
+      {roomData?.roomCode && (
+        <>
+          <Card>
+            <CardContent>
+              <Typography variant="h5" component="div">
+                Connection
+              </Typography>
 
-                  <Card.Text>
-                    <Card.Text>{users}</Card.Text>
-                  </Card.Text>
-                  <Card.Text>
-                    <Button
-                      onClick={() => {
-                        channels.drop(`${roomData?.scope}/users`, Duration.Connection, { user: makeId(5) });
-                      }}>
-                      Drop user
-                    </Button>
-                  </Card.Text>
-                </Card.Body>
-              </Card>
-            </>
-          )}
-        </Col>
-      </Row>
+              <Typography variant="p" component="div">
+                <img src={connectionDropImage} alt={""} style={{ float: "left", width: 100, height: 100 }} />
+                Drops that only exist while client is connected
+              </Typography>
+
+              <Button
+                variant="contained"
+                onClick={() => {
+                  channels.drop(`${roomData?.scope}/users`, Duration.Connection, { user: makeId(5) });
+                }}>
+                Drop user
+              </Button>
+              <div>{users}</div>
+            </CardContent>
+          </Card>
+
+          <Card>
+            <CardContent>
+              <Typography variant="h5" component="div">
+                Forever
+              </Typography>
+
+              <Typography variant="p" component="div">
+                <img src={foreverDropImage} alt={""} style={{ float: "left", width: 100, height: 100 }} />
+                Drops that exist forever (or until deleted)
+              </Typography>
+
+              <TextField
+                id="outlined-basic"
+                label="Outlined"
+                variant="outlined"
+                value={message}
+                onChange={(event) => {
+                  setMessage(event.target.value);
+                }}
+              />
+              <Button
+                variant="contained"
+                onClick={() => {
+                  channels.drop(`${roomData?.scope}/messages`, Duration.Forever, { message });
+                }}>
+                Submit
+              </Button>
+              <div>{messages}</div>
+            </CardContent>
+          </Card>
+        </>
+      )}
     </Container>
   );
 }
