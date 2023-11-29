@@ -1,17 +1,7 @@
-import { LocalServer } from "./local/LocalServer.js";
-import { GlobalServer } from "./global/GlobalServer.js";
+import { GlobalServer } from "./server/GlobalServer.js";
 import { Size } from "./Size.js";
-import { Duration } from "./Duration.js";
 
 const DefaultChannel = "_default_";
-
-const ConnectionStatus = {
-  Init: "init",
-  Connecting: "connecting",
-  Authenticating: "authenticating",
-  Connected: "connected",
-  Error: "error",
-};
 
 class Channels {
   _localServer = null;
@@ -19,15 +9,19 @@ class Channels {
   _channels = [];
   _catches = {};
 
-  constructor(storage, websocket) {
-    console.log("CHANNELS constructor: ", storage, websocket);
+  constructor(storage, awebsocket) {
+    console.log("CHANNELS constructor storage: ", storage);
+    console.log("CHANNELS constructor websocket: ", awebsocket);
+
     this._storage = storage;
-    this._websocket = websocket;
+    this._websocket = awebsocket;
   }
 
   async initialise(config) {
     const domain = config.domain || "webcomms.biz";
     const port = config.port || 9080;
+
+    console.log(`INTIALISE ${domain} ${port}`);
 
     const serverEndpoint = `ws://${domain}:${port}`;
     this._globalServer = new GlobalServer(this._websocket, this._storage, serverEndpoint, config);
@@ -104,4 +98,4 @@ class Channels {
   }
 }
 
-export { Channels, Size, Duration, ConnectionStatus };
+export { Channels };

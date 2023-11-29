@@ -1,5 +1,5 @@
-import { ChannelServer } from "../ChannelServer.js";
-import { ConnectionStatus } from "../Channels.js";
+import { ChannelServer } from "./ChannelServer.js";
+import { ConnectionStatus } from "../ConnectionStatus.js";
 import { EventEmitter } from "eventemitter3";
 
 const Status = {

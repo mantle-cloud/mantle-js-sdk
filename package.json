@@ -11,14 +11,12 @@
     "lerna": "^6.0.3",
     "rollup-plugin-ts": "^3.2.0"
   },
-  "engines": {
-    "node": ">=16.0.0 <17.0.0"
-  },
   "packageManager": "yarn@3.4.1",
   "dependencies": {
     "eventemitter3": "^5.0.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "reactstrap": "^9.1.10"
+    "reactstrap": "^9.1.10",
+    "rollup": "^4.6.0"
   }
 }

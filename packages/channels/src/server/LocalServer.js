@@ -1,5 +1,5 @@
 import { Channel } from "../Channel.js";
-import { ChannelServer } from "../ChannelServer.js";
+import { ChannelServer } from "./ChannelServer.js";
 import { Duration } from "../Duration.js";
 
 class LocalServer extends ChannelServer {

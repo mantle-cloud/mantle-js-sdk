@@ -1,4 +1,3 @@
-import ts from "rollup-plugin-ts";
 import compiler from "@ampproject/rollup-plugin-closure-compiler";
 
 export default {
@@ -6,5 +5,5 @@ export default {
   output: {
     file: "dist/index.js",
   },
-  plugins: [],
+  plugins: [compiler],
 };
