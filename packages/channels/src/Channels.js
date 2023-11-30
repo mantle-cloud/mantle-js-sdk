@@ -50,9 +50,9 @@ class Channels {
     }
   }
 
-  async deleteDrop(channelId, dropId, size = Size.Global) {
+  async deleteDrop(drop, size = Size.Global) {
     if (size == Size.Global) {
-      await this._globalServer.deleteDrop(channelId, dropId);
+      await this._globalServer.deleteDrop(drop.channelId, drop.id);
     } else if (size == Size.Local && !this._localServer) {
     }
   }

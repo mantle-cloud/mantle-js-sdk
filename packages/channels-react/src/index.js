@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { getChannels, Duration, ConnectionStatus } from "@mantle-cloud/channels";
 
+export { Duration, ConnectionStatus };
+
 export function useChannels({ config }) {
   const [endpoint, setEndpoint] = useState();
   const [status, setStatus] = useState();

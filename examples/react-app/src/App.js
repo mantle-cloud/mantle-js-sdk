@@ -4,47 +4,21 @@ import { useEffect, useState } from "react";
 import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 
-import connectionDropImage from "./images/connection-drop.png";
-import foreverDropImage from "./images/forever-drop.png";
-import { Card, CardContent, TextField, Typography } from "@mui/material";
-
+import { ConnectionSample } from "./components/ConnectionSample";
+import { ForeverSample } from "./components/ForeverSample";
+import { InstantSample } from "./components/InstantSample";
+import { Accordion, AccordionDetails, AccordionSummary, Typography } from "@mui/material";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { UntilCaughtSample } from "./components/UntilCaught";
 const config = {
   projectId: "my-react-app",
   domain: "webcomms.biz",
 };
 
-const makeId = function (length) {
-  var result = "";
-  var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-  var charactersLength = characters.length;
-  for (var i = 0; i < length; i++) {
-    result += characters.charAt(Math.floor(Math.random() * charactersLength));
-  }
-  return result;
-};
-
 function App() {
-  const [userDrops, setUserDrops] = useState();
-  const [messageDrops, setMessageDrops] = useState();
   const [roomData, setRoomData] = useState();
-  const [message, setMessage] = useState("");
 
   const { error, endpoint, status, channels, Duration, ConnectionStatus } = useChannels({ config });
-
-  useEffect(() => {
-    if (!roomData || !channels) return;
-    channels.drop(`${roomData?.scope}/users`, Duration.Connection, { user: makeId(5) });
-  }, [Duration.Connection, channels, roomData]);
-
-  useEffect(() => {
-    if (!roomData) return;
-    return channels.catch(setUserDrops, `${roomData.scope}/users`);
-  }, [channels, roomData]);
-
-  useEffect(() => {
-    if (!roomData) return;
-    return channels.catch(setMessageDrops, `${roomData.scope}/messages`);
-  }, [channels, roomData]);
 
   useEffect(() => {
     if (status !== ConnectionStatus.Connected) return;
@@ -55,9 +29,6 @@ function App() {
       }
     }, "@rooms/response");
   }, [ConnectionStatus.Connected, channels, status]);
-
-  const users = userDrops && userDrops.map((drop) => <div>{JSON.stringify(drop.data)}</div>);
-  const messages = messageDrops && messageDrops.map((drop) => <div>{JSON.stringify(drop.data)}</div>);
 
   return (
     <Container>
@@ -99,60 +70,43 @@ function App() {
       />
 
       {roomData?.roomCode && (
-        <>
-          <Card>
-            <CardContent>
-              <Typography variant="h5" component="div">
-                Connection
-              </Typography>
+        <div>
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+              <Typography variant="h5">Connection</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <ConnectionSample channels={channels} scope={roomData.scope} />
+            </AccordionDetails>
+          </Accordion>
 
-              <Typography variant="p" component="div">
-                <img src={connectionDropImage} alt={""} style={{ float: "left", width: 100, height: 100 }} />
-                Drops that only exist while client is connected
-              </Typography>
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+              <Typography variant="h5">Forever</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <ForeverSample channels={channels} scope={roomData.scope} />
+            </AccordionDetails>
+          </Accordion>
 
-              <Button
-                variant="contained"
-                onClick={() => {
-                  channels.drop(`${roomData?.scope}/users`, Duration.Connection, { user: makeId(5) });
-                }}>
-                Drop user
-              </Button>
-              <div>{users}</div>
-            </CardContent>
-          </Card>
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+              <Typography variant="h5">Instant</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <InstantSample channels={channels} scope={roomData.scope} />
+            </AccordionDetails>
+          </Accordion>
 
-          <Card>
-            <CardContent>
-              <Typography variant="h5" component="div">
-                Forever
-              </Typography>
-
-              <Typography variant="p" component="div">
-                <img src={foreverDropImage} alt={""} style={{ float: "left", width: 100, height: 100 }} />
-                Drops that exist forever (or until deleted)
-              </Typography>
-
-              <TextField
-                id="outlined-basic"
-                label="Outlined"
-                variant="outlined"
-                value={message}
-                onChange={(event) => {
-                  setMessage(event.target.value);
-                }}
-              />
-              <Button
-                variant="contained"
-                onClick={() => {
-                  channels.drop(`${roomData?.scope}/messages`, Duration.Forever, { message });
-                }}>
-                Submit
-              </Button>
-              <div>{messages}</div>
-            </CardContent>
-          </Card>
-        </>
+          <Accordion>
+            <AccordionSummary expandIcon={<ExpandMoreIcon />} aria-controls="panel1a-content" id="panel1a-header">
+              <Typography variant="h5">Until Caught</Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <UntilCaughtSample channels={channels} scope={roomData.scope} />
+            </AccordionDetails>
+          </Accordion>
+        </div>
       )}
     </Container>
   );
