@@ -16,7 +16,7 @@
     "publish": {
       "ignoreChanges": ["*.md", ".test", ".snap"],
       "message": "release: publish",
-      "registry": "npmjs.com",
+      "registry": "registry.npmjs.org",
       "yes": true,
       "conventionalCommits": true
     }
