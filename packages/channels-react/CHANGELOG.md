@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.13](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels-react@1.0.12...@mantle-cloud/channels-react@1.0.13) (2024-01-10)
+
+
+### Bug Fixes
+
+* removes console output ([733b27a](https://github.com/mantle-cloud/mantle-js-sdk/commit/733b27a8d20b8215914d46261e64e0d1ec2198d6))
+
+
+
+
+
 ## [1.0.12](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels-react@1.0.11...@mantle-cloud/channels-react@1.0.12) (2024-01-10)
 
 
