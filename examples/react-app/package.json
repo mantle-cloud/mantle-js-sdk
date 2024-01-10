@@ -1,13 +1,13 @@
 {
   "name": "@mantle-cloud/example-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "license": "ISC",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
     "@fontsource/roboto": "^5.0.8",
-    "@mantle-cloud/channels": "^1.0.0",
+    "@mantle-cloud/channels": "^1.1.0",
     "@mui/icons-material": "^5.14.18",
     "@mui/material": "^5.14.18",
     "fs": "^0.0.1-security",
