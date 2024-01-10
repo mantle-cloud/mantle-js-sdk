@@ -12,6 +12,8 @@ export function useChannels({ config }) {
   async function initialiseChannels() {
     const _channels = await getChannels();
 
+    console.log("Initialising...");
+
     setChannels(_channels);
 
     _channels.initialise(config);
