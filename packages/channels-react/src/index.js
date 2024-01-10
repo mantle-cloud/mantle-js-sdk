@@ -1,5 +1,5 @@
+import { ConnectionStatus, Duration, getChannels } from "@mantle-cloud/channels";
 import { useEffect, useState } from "react";
-import { getChannels, Duration, ConnectionStatus } from "@mantle-cloud/channels";
 
 export { Duration, ConnectionStatus };
 
@@ -11,6 +11,7 @@ export function useChannels({ config }) {
 
   async function initialiseChannels() {
     const _channels = await getChannels();
+    console.log("initialise channels");
 
     setChannels(_channels);
 
