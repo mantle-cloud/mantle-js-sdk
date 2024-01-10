@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.16](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels-react@1.0.15...@mantle-cloud/channels-react@1.0.16) (2024-01-10)
+
+
+### Bug Fixes
+
+* adding console log ([c68ddd6](https://github.com/mantle-cloud/mantle-js-sdk/commit/c68ddd63f6977ed3a966933e97cd7554f2f812bd))
+
+
+
+
+
 ## [1.0.15](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels-react@1.0.14...@mantle-cloud/channels-react@1.0.15) (2024-01-10)
 
 
