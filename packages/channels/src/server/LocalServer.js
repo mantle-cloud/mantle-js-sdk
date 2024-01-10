@@ -66,12 +66,9 @@ class LocalChannel extends Channel {
   }
 
   catch(type, listener) {
-    // console.log("LOCAL CATCH", type);
-    // console.log("  before", this.catches);
     const id = this.generateUUID();
     this.catches.push({ type, listener, id });
 
-    // console.log("  after", this.catches);
     this.checkCatchesForType(type);
 
     return id;
@@ -84,25 +81,19 @@ class LocalChannel extends Channel {
 
     console.log("matching drops", matchingDrops);
     const promises = [];
-    const listeners = {};
 
-    // const dropsLeft = matchingDrops.length - 1;
     let dropIndex = 0;
     let finished = false;
     let moreListeners = true;
-    console.log("+++");
     while (dropIndex < matchingDrops.length && !finished && moreListeners) {
-      console.log("---");
       moreListeners = false;
       for (let c of this.catches) {
         console.log("c = ", c);
         if (c.type == type) {
           const drop = matchingDrops[dropIndex++];
-          console.log(">>> ", drop);
           c.listener([drop]);
 
           if (drop.duration == Duration.UntilCaught.code) {
-            console.log(">>> deleteDrop", drop.id);
             promises.push(this.storage.deleteDrop(drop.id));
           }
 
@@ -114,17 +105,6 @@ class LocalChannel extends Channel {
         }
       }
     }
-    // matchingDrops.forEach((drop) => {});
-
-    // this.catches.forEach((c) => {
-    //   if (c.type == type) {
-    //     c.listener(matchingDrops);
-
-    //     for (drop in matchingDrops) {
-    //       promises.push(this.storage.deleteDrop(drop.id));
-    //     }
-    //   }
-    // });
 
     const result = await Promise.all(promises);
 

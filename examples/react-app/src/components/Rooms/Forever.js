@@ -1,12 +1,11 @@
+import { Button, TextField, Typography } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
-import { Message } from "./Message";
+
 import { Duration } from "@mantle-cloud/channels-react";
-import Button from "@mui/material/Button";
+import { Message } from "../Message";
+import foreverDropImage from "../../images/forever-drop.png";
 
-import foreverDropImage from "../images/forever-drop.png";
-import { Card, CardContent, TextField, Typography } from "@mui/material";
-
-export function ForeverSample({ channels, scope }) {
+export function Forever({ channels, scope }) {
   const [messageDrops, setMessageDrops] = useState();
   const [message, setMessage] = useState("");
 

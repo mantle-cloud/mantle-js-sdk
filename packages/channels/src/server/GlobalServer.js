@@ -73,11 +73,7 @@ class GlobalServer extends ChannelServer {
 
   catch(listener, channelId, params, jwt = this._accessToken) {
     const sendAddCatch = async (id) => {
-      console.log("add Catch...", { channelId, params, jwt });
-
       await this.verifyConnection();
-
-      console.log("> verified");
 
       function reject(error, params) {
         listener(null, error, params);
@@ -104,11 +100,9 @@ class GlobalServer extends ChannelServer {
       console.log("> TX:", msg);
     };
 
-    console.log("GLOBAL SERVER, CATCH", { channelId, params, jwt });
     const id = makeId(32);
     sendAddCatch(id);
     return () => {
-      console.log("DELETE CATCH");
       this.deleteCatch(channelId, id);
     };
   }
@@ -117,8 +111,6 @@ class GlobalServer extends ChannelServer {
     await this.verifyConnection();
 
     this._sendTime = Date.now();
-
-    console.log(this._instanceId, "delete catch", channelId, catchId);
 
     let msg = {
       cmd: "deleteCatch",
@@ -137,8 +129,6 @@ class GlobalServer extends ChannelServer {
 
       const operation = this.addOperation(resolve, reject);
 
-      console.log(this._instanceId, "delete drop", channelId, dropId);
-
       let msg = {
         cmd: "deleteDrop",
         id: dropId,
@@ -155,8 +145,6 @@ class GlobalServer extends ChannelServer {
 
     return new Promise((resolve, reject) => {
       this._sendTime = Date.now();
-
-      console.log(this._instanceId, "add drop", channelId, duration, data);
 
       const operation = this.addOperation(resolve, reject);
       const id = makeId(32);
@@ -176,9 +164,7 @@ class GlobalServer extends ChannelServer {
   async verifyConnection() {
     switch (this._connectionStatus) {
       case ConnectionStatus.Init:
-        console.log("verifyConnection A");
         await this.connectToServer();
-        console.log("verifyConnection A connected");
         break;
       case ConnectionStatus.Connecting:
         // wait for connected status
@@ -201,8 +187,6 @@ class GlobalServer extends ChannelServer {
   }
 
   async createAnonymousUser() {
-    console.log("CREDENTIALS", "creating anonymous user...");
-
     return new Promise((resolve, reject) => {
       const operation = this.addOperation(resolve, reject);
       let msg = {
@@ -214,8 +198,6 @@ class GlobalServer extends ChannelServer {
   }
 
   async signInAnonymously(credentials) {
-    console.log("CREDENTIALS", "signInAnonymously...");
-
     return new Promise((resolve, reject) => {
       const operation = this.addOperation(resolve, reject);
       let msg = {
@@ -228,8 +210,6 @@ class GlobalServer extends ChannelServer {
   }
 
   async clientAuth(credentials) {
-    console.log("CREDENTIALS", "clientAuth...", credentials);
-
     return new Promise((resolve, reject) => {
       const operation = this.addOperation(resolve, reject);
       let msg = {
@@ -249,8 +229,6 @@ class GlobalServer extends ChannelServer {
     try {
       const response = await this.clientAuth(this._credentials);
 
-      console.log("Authorized !!");
-
       this._connectionStatus = ConnectionStatus.Connected;
       this._eventEmmiter.emit(this._connectionStatus);
 
@@ -268,10 +246,8 @@ class GlobalServer extends ChannelServer {
     this._connectionError = null;
     return new Promise((resolve, reject) => {
       this._ws = new this._WebSocket(this._serverEndpoint);
-      console.log("ConnectionStatus: Connected to ", this._serverEndpoint);
 
       this._ws.on("message", (str) => {
-        console.log("<<  message", str);
         const data = JSON.parse(str);
         if (data.cmd == "authResponse") {
           const operation = this._operations[data.operationId];
@@ -281,16 +257,11 @@ class GlobalServer extends ChannelServer {
 
           if (c) {
             const updateTime = Date.now() - this._sendTime;
-            console.log(this._instanceId, data.catchId, "update time:", updateTime);
             c.listener(data.drops, null, { updateTime, catchId: data.catchId });
           }
         } else if (data.cmd == "error") {
           const operation = this._operations[data.operationId];
-
-          console.log("RECV [error] ", data, operation);
           operation.reject(new Error(`${data.name} [${data.code}] ${data.details}`));
-        } else {
-          console.log("RECV ", data);
         }
       });
 

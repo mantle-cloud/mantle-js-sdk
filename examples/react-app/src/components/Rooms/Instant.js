@@ -1,13 +1,11 @@
-import { useCallback, useEffect, useState } from "react";
-import { Message } from "./Message";
+import { Button, TextField, Typography } from "@mui/material";
+import { useEffect, useState } from "react";
+
 import { Duration } from "@mantle-cloud/channels-react";
-import Button from "@mui/material/Button";
+import { Ping } from "../Ping";
+import instantDropImage from "../../images/instant-drop.png";
 
-import instantDropImage from "../images/instant-drop.png";
-import { Card, CardContent, TextField, Typography } from "@mui/material";
-import { Ping } from "./Ping";
-
-export function InstantSample({ channels, scope }) {
+export function Instant({ channels, scope }) {
   const [pingDrops, setPingDrops] = useState();
   const [message, setMessage] = useState("");
 

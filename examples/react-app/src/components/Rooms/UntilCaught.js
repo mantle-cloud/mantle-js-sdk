@@ -1,12 +1,11 @@
+import { Button, FormControlLabel, FormGroup, Grid, Switch, TextField, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+
 import { Duration } from "@mantle-cloud/channels-react";
-import Button from "@mui/material/Button";
+import { Task } from "../Task";
+import untilCaughtDropImage from "../../images/until-caught-drop.png";
 
-import untilCaughtDropImage from "../images/until-caught-drop.png";
-import { FormControlLabel, FormGroup, Grid, Switch, TextField, Typography } from "@mui/material";
-import { Task } from "./Task";
-
-export function UntilCaughtSample({ channels, scope }) {
+export function UntilCaught({ channels, scope }) {
   const [taskDrops, setTaskDrops] = useState();
   const [message, setMessage] = useState("");
   const [enabled, setEnabled] = useState(false);

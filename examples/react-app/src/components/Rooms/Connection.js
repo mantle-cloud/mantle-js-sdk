@@ -1,8 +1,8 @@
-import Button from "@mui/material/Button";
-import { Duration } from "@mantle-cloud/channels-react";
-import connectionDropImage from "../images/connection-drop.png";
-import { Card, CardContent, Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
+
+import { Duration } from "@mantle-cloud/channels-react";
+import connectionDropImage from "../../images/connection-drop.png";
 
 const makeId = function (length) {
   var result = "";
@@ -14,7 +14,7 @@ const makeId = function (length) {
   return result;
 };
 
-export function ConnectionSample({ channels, scope }) {
+export function Connection({ channels, scope }) {
   const [userDrops, setUserDrops] = useState();
 
   useEffect(() => {
