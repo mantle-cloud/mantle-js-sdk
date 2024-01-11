@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.7](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/example-react@1.0.6...@mantle-cloud/example-react@1.0.7) (2024-01-11)
+
+**Note:** Version bump only for package @mantle-cloud/example-react
+
+
+
+
+
 ## [1.0.6](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/example-react@1.0.5...@mantle-cloud/example-react@1.0.6) (2024-01-11)
 
 **Note:** Version bump only for package @mantle-cloud/example-react
