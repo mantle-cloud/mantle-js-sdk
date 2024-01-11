@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.3...@mantle-cloud/channels@1.1.4) (2024-01-11)
+
+
+### Bug Fixes
+
+* adds update drop ([32becbf](https://github.com/mantle-cloud/mantle-js-sdk/commit/32becbffc3e6dfc5477c6be8c373ee4a3de2087b))
+
+
+
+
+
 ## [1.1.3](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.2...@mantle-cloud/channels@1.1.3) (2024-01-11)
 
 
