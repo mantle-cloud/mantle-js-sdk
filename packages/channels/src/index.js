@@ -1,5 +1,3 @@
-console.log("test 4");
-
 import { Channels } from "./Channels.js";
 import { ConnectionStatus } from "./ConnectionStatus.js";
 import { Duration } from "./Duration.js";
@@ -17,9 +15,7 @@ async function getChannels() {
     const { BrowserWebSocket } = await import("./websocket/BrowserWebSocket.js");
     _channelsInstance = new Channels(BrowserStorage, BrowserWebSocket);
   } else {
-    const { NodeStorage } = await import("./storage/NodeStorage.js");
-    const { NodeWebSocket } = await import("./websocket/NodeWebSocket.js");
-    _channelsInstance = new Channels(NodeStorage, NodeWebSocket);
+    throw new Error("Unsupported environment. Only browser is supported.");
   }
 
   return _channelsInstance;

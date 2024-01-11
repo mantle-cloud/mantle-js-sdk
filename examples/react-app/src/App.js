@@ -10,6 +10,10 @@ const config = {
   projectId: "my-react-app",
   // domain: "webcomms.biz",
   domain: "localhost",
+  user: {
+    token: "-- token --",
+    firebaseUid: "-- uid --",
+  },
 };
 
 function App() {
@@ -24,9 +28,9 @@ function App() {
         <Rooms channels={channels} status={status}></Rooms>
       </Paper> */}
 
-      <Paper elevation={3} sx={{ px: 4, pb: 4, pt: 2, mt: 1 }}>
+      {/* <Paper elevation={3} sx={{ px: 4, pb: 4, pt: 2, mt: 1 }}>
         <DocumentStore channels={channels} status={status} projectId={config.projectId}></DocumentStore>
-      </Paper>
+      </Paper> */}
     </Container>
   );
 }

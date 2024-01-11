@@ -21,19 +21,11 @@ class Channels {
     const domain = config.domain || "webcomms.biz";
     const port = config.port || 9080;
 
-    console.log(`INTIALISE ${domain} ${port}`);
+    console.log(`INTIALISE ${domain} ${port},  User:${config.user}`);
 
     const serverEndpoint = `ws://${domain}:${port}`;
     this._globalServer = new GlobalServer(this._websocket, this._storage, serverEndpoint, config);
   }
-
-  // async getUserCredentials() {
-  //   return await this._storage.getUserCredentials();
-  // }
-
-  // async getUserCredentials() {
-  //   return await this._storage.getUserCredentials();
-  // }
 
   addStatusListener(fn, size = Size.Global) {
     if (size == Size.Global) {
@@ -64,20 +56,6 @@ class Channels {
       await this._localServer.connect(this, channelId);
     }
   }
-
-  // async connectLocal(channelId) {
-  //   if (!this._localServer) {
-  //     this._localServer = new LocalServer(this._storage);
-  //   }
-  //   return await this._localServer.connect(this, channelId);
-  // }
-
-  // async connectGlobal(channelId) {
-  //   if (!this._globalServer) {
-  //     this._globalServer = new GlobalServer(this._websocket);
-  //   }
-  //   return await this._globalServer.connect(this, channelId);
-  // }
 
   disconnectChannel(channel) {
     const index = this._channels.indexOf(channel);
