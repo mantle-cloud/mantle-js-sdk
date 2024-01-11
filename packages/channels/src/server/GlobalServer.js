@@ -147,10 +147,10 @@ class GlobalServer extends ChannelServer {
       this._sendTime = Date.now();
 
       const operation = this.addOperation(resolve, reject);
-      const id = makeId(32);
+
       let msg = {
         cmd: "update",
-        id,
+        id: dropId,
         channelId,
         data,
         operationId: operation.id,
