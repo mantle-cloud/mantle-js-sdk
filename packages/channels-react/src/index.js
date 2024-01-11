@@ -17,7 +17,6 @@ export function useChannels({ config }) {
     _channels.initialise(config);
 
     _channels.addStatusListener(function (status, endpoint, error) {
-      console.log("STATUS", status, endpoint, error);
       setEndpoint(endpoint);
       setStatus(status);
       setError(error?.message);

@@ -49,6 +49,10 @@ class Channels {
     }
   }
 
+  async update(channelId, dropId, data) {
+    await this._globalServer.update(channelId, dropId, data);
+  }
+
   async drop(channelId, duration, data, size = Size.Global) {
     if (size == Size.Global) {
       await this._globalServer.drop(channelId, duration, data);

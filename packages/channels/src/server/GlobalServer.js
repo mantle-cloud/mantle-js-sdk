@@ -140,6 +140,26 @@ class GlobalServer extends ChannelServer {
     });
   }
 
+  async update(channelId, dropId, data) {
+    await this.verifyConnection();
+
+    return new Promise((resolve, reject) => {
+      this._sendTime = Date.now();
+
+      const operation = this.addOperation(resolve, reject);
+      const id = makeId(32);
+      let msg = {
+        cmd: "update",
+        id,
+        channelId,
+        data,
+        operationId: operation.id,
+        jwt: this._accessToken,
+      };
+      this._ws.send(JSON.stringify(msg));
+    });
+  }
+
   async drop(channelId, duration, data) {
     await this.verifyConnection();
 
