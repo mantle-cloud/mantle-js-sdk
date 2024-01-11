@@ -156,6 +156,8 @@ class GlobalServer extends ChannelServer {
         operationId: operation.id,
         jwt: this._accessToken,
       };
+
+      console.log(">> UPDATE:", JSON.stringify(msg));
       this._ws.send(JSON.stringify(msg));
     });
   }
