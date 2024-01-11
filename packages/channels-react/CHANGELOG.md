@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.19](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels-react@1.0.18...@mantle-cloud/channels-react@1.0.19) (2024-01-11)
+
+
+### Bug Fixes
+
+* sends correct credentials to server ([09e863b](https://github.com/mantle-cloud/mantle-js-sdk/commit/09e863bc9966613596924f5959a1c017d92439ee))
+
+
+
+
+
 ## [1.0.18](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels-react@1.0.17...@mantle-cloud/channels-react@1.0.18) (2024-01-11)
 
 **Note:** Version bump only for package @mantle-cloud/channels-react

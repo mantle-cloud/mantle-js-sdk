@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.2...@mantle-cloud/channels@1.1.3) (2024-01-11)
+
+
+### Bug Fixes
+
+* sends correct credentials to server ([09e863b](https://github.com/mantle-cloud/mantle-js-sdk/commit/09e863bc9966613596924f5959a1c017d92439ee))
+
+
+
+
+
 ## [1.1.2](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.1...@mantle-cloud/channels@1.1.2) (2024-01-11)
 
 
