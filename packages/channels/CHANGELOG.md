@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.7](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.6...@mantle-cloud/channels@1.1.7) (2024-01-15)
+
+
+### Bug Fixes
+
+* sends token for client authentication ([60da757](https://github.com/mantle-cloud/mantle-js-sdk/commit/60da75750a95d361ed7f497a6f8c196957cc0962))
+
+
+
+
+
 ## [1.1.6](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.5...@mantle-cloud/channels@1.1.6) (2024-01-11)
 
 
