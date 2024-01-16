@@ -39,6 +39,10 @@ class GlobalServer extends ChannelServer {
     this.connectToServer();
   }
 
+  getClientId() {
+    return this._clientId;
+  }
+
   addStatusListener(fn) {
     fn(this._connectionStatus, this._serverEndpoint, this._connectionError);
 
@@ -96,8 +100,6 @@ class GlobalServer extends ChannelServer {
       };
 
       this._ws.send(JSON.stringify(msg));
-
-      console.log("> TX:", msg);
     };
 
     const id = makeId(32);
@@ -140,7 +142,7 @@ class GlobalServer extends ChannelServer {
     });
   }
 
-  async update(channelId, dropId, data) {
+  async updateDrop(channelId, dropId, data) {
     await this.verifyConnection();
 
     return new Promise((resolve, reject) => {
@@ -149,7 +151,7 @@ class GlobalServer extends ChannelServer {
       const operation = this.addOperation(resolve, reject);
 
       let msg = {
-        cmd: "update",
+        cmd: "updateDrop",
         id: dropId,
         channelId,
         data,
@@ -157,7 +159,6 @@ class GlobalServer extends ChannelServer {
         jwt: this._accessToken,
       };
 
-      console.log(">> UPDATE:", JSON.stringify(msg));
       this._ws.send(JSON.stringify(msg));
     });
   }
@@ -251,10 +252,20 @@ class GlobalServer extends ChannelServer {
     try {
       const response = await this.clientAuth(this._credentials);
 
-      this._connectionStatus = ConnectionStatus.Connected;
-      this._eventEmmiter.emit(this._connectionStatus);
+      console.log("AUTH response:", response);
 
-      resolve();
+      if (response.success) {
+        this._clientId = response.clientId;
+        this._connectionStatus = ConnectionStatus.Connected;
+        this._eventEmmiter.emit(this._connectionStatus);
+
+        resolve();
+      } else {
+        this._connectionStatus = ConnectionStatus.Error;
+        this._eventEmmiter.emit(this._connectionStatus);
+
+        reject(e);
+      }
     } catch (e) {
       this._connectionStatus = ConnectionStatus.Error;
       this._eventEmmiter.emit(this._connectionStatus);

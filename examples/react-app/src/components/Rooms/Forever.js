@@ -1,8 +1,9 @@
-import { Button, TextField, Typography } from "@mui/material";
+import { Button, FormControlLabel, FormGroup, Paper, Switch, TextField, Typography } from "@mui/material";
 import { useCallback, useEffect, useState } from "react";
 
+import { ChatBot } from "./ChatBot";
 import { Duration } from "@mantle-cloud/channels-react";
-import { Message } from "../Message";
+import { Message } from "./Message";
 import foreverDropImage from "../../images/forever-drop.png";
 
 export function Forever({ channels, scope }) {
@@ -10,15 +11,10 @@ export function Forever({ channels, scope }) {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    return channels.catch(setMessageDrops, `${scope}/messages`);
+    return channels.catch((drops) => {
+      setMessageDrops(drops);
+    }, `${scope}/messages`);
   }, [channels, scope]);
-
-  const deleteDrop = useCallback(
-    (drop) => {
-      channels.deleteDrop(drop);
-    },
-    [channels]
-  );
 
   const messages =
     messageDrops &&
@@ -26,7 +22,10 @@ export function Forever({ channels, scope }) {
       <Message
         drop={drop}
         onDelete={() => {
-          deleteDrop(drop);
+          channels.deleteDrop(drop);
+        }}
+        onSetMessage={(message) => {
+          channels.updateDrop(drop, { message });
         }}
       />
     ));
@@ -58,7 +57,18 @@ export function Forever({ channels, scope }) {
         }}>
         Submit
       </Button>
+
+      <Button
+        variant="contained"
+        onClick={() => {
+          channels.drop(`${scope}/messages`, Duration.Forever, { message: "A" });
+          channels.drop(`${scope}/messages`, Duration.Forever, { message: "B" });
+        }}>
+        Submit (A+B)
+      </Button>
+
       <div>{messages}</div>
+      <ChatBot channels={channels} scope={scope}></ChatBot>
     </>
   );
 }

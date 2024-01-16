@@ -49,8 +49,8 @@ class Channels {
     }
   }
 
-  async update(channelId, dropId, data) {
-    await this._globalServer.update(channelId, dropId, data);
+  async updateDrop(drop, data) {
+    await this._globalServer.updateDrop(drop.channelId, drop.id, data);
   }
 
   async drop(channelId, duration, data, size = Size.Global) {
@@ -59,6 +59,10 @@ class Channels {
     } else if (size == Size.Local && !this._localServer) {
       await this._localServer.connect(this, channelId);
     }
+  }
+
+  getClientId() {
+    return this._globalServer.getClientId();
   }
 
   disconnectChannel(channel) {
