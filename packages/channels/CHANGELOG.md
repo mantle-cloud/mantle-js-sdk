@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.8](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.7...@mantle-cloud/channels@1.1.8) (2024-01-16)
+
+
+### Bug Fixes
+
+* :construction: adds example for a chat bot responder ([c0184a4](https://github.com/mantle-cloud/mantle-js-sdk/commit/c0184a4d8ad9d0b8098b3d0c18084569175b73e3))
+
+
+
+
+
 ## [1.1.7](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.6...@mantle-cloud/channels@1.1.7) (2024-01-15)
 
 

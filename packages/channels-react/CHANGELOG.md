@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.24](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels-react@1.0.23...@mantle-cloud/channels-react@1.0.24) (2024-01-16)
+
+**Note:** Version bump only for package @mantle-cloud/channels-react
+
+
+
+
+
 ## [1.0.23](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels-react@1.0.22...@mantle-cloud/channels-react@1.0.23) (2024-01-15)
 
 **Note:** Version bump only for package @mantle-cloud/channels-react

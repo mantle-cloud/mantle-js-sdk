@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.10](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/example-react@1.0.9...@mantle-cloud/example-react@1.0.10) (2024-01-16)
+
+
+### Bug Fixes
+
+* :construction: adds example for a chat bot responder ([c0184a4](https://github.com/mantle-cloud/mantle-js-sdk/commit/c0184a4d8ad9d0b8098b3d0c18084569175b73e3))
+
+
+
+
+
 ## [1.0.9](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/example-react@1.0.8...@mantle-cloud/example-react@1.0.9) (2024-01-15)
 
 **Note:** Version bump only for package @mantle-cloud/example-react
