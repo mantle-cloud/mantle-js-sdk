@@ -18,12 +18,13 @@ class Channels {
   }
 
   async initialise(config) {
-    const domain = config.domain || "webcomms.biz";
-    const port = config.port || 9080;
+    const domain = config.domain || "channels.mantlecloud.com";
+    const port = config.port || 443;
+    const protocol = config.protocol || "wss";
 
-    console.log(`INTIALISE ${domain} ${port},  User:${config.user}`);
+    console.log(`INTIALISE ${protocol}://${domain}:${port},  User:${config.user}`);
 
-    const serverEndpoint = `ws://${domain}:${port}`;
+    const serverEndpoint = `${protocol}://${domain}:${port}/ws`;
     this._globalServer = new GlobalServer(this._websocket, this._storage, serverEndpoint, config);
   }
 

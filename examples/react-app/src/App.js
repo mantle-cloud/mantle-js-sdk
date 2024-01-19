@@ -7,7 +7,7 @@ const PROJECT_ID = "-- project id --";
 const FIREBASE_TOKEN = "-- firebase token --";
 const config = {
   projectId: PROJECT_ID,
-  domain: "webcomms.biz",
+  domain: "channels.mantlecloud.com",
   token: FIREBASE_TOKEN,
 };
 
