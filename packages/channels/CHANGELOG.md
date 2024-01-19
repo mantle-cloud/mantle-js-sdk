@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.10](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.9...@mantle-cloud/channels@1.1.10) (2024-01-19)
+
+
+### Bug Fixes
+
+* add logging for debugging ([265def5](https://github.com/mantle-cloud/mantle-js-sdk/commit/265def5ad95251d7f16d93ac2626656decbb8528))
+
+
+
+
+
 ## [1.1.9](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.8...@mantle-cloud/channels@1.1.9) (2024-01-19)
 
 
