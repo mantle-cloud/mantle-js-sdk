@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.9](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.8...@mantle-cloud/channels@1.1.9) (2024-01-19)
+
+
+### Bug Fixes
+
+* :lock: use wss for websocket connection ([6fcb4ae](https://github.com/mantle-cloud/mantle-js-sdk/commit/6fcb4ae1e003336cb4871754f11759e20099e431))
+
+
+
+
+
 ## [1.1.8](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.7...@mantle-cloud/channels@1.1.8) (2024-01-16)
 
 
