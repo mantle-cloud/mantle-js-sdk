@@ -143,6 +143,7 @@ class GlobalServer extends ChannelServer {
   }
 
   async updateDrop(channelId, dropId, data) {
+    console.log("SDK: updateDrop", { channelId, dropId, data });
     await this.verifyConnection();
 
     return new Promise((resolve, reject) => {
@@ -158,6 +159,8 @@ class GlobalServer extends ChannelServer {
         operationId: operation.id,
         jwt: this._accessToken,
       };
+
+      console.log("SDK: updateDrop >> sending", msg);
 
       this._ws.send(JSON.stringify(msg));
     });
