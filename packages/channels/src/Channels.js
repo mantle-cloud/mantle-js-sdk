@@ -20,11 +20,11 @@ class Channels {
   async initialise(config) {
     const domain = config.domain || "channels.mantlecloud.com";
     const port = config.port || 443;
-    const protocol = config.protocol || "wss";
+    const scheme = config.scheme || "wss";
 
-    console.log(`INTIALISE ${protocol}://${domain}:${port},  User:${config.user}`);
+    console.log(`INTIALISE ${scheme}://${domain}:${port},  User:${config.user}`);
 
-    const serverEndpoint = `${protocol}://${domain}:${port}/ws`;
+    const serverEndpoint = `${scheme}://${domain}:${port}/ws`;
     this._globalServer = new GlobalServer(this._websocket, this._storage, serverEndpoint, config);
   }
 
@@ -52,6 +52,10 @@ class Channels {
 
   async updateDrop(drop, data) {
     await this._globalServer.updateDrop(drop.channelId, drop.id, data);
+  }
+
+  async getDrops(channelId) {
+    return await this._globalServer.getDrops(channelId);
   }
 
   async drop(channelId, duration, data, size = Size.Global) {

@@ -123,6 +123,23 @@ class GlobalServer extends ChannelServer {
     this._ws.send(JSON.stringify(msg));
   }
 
+  async getDrops(channelId) {
+    await this.verifyConnection();
+
+    return new Promise((resolve, reject) => {
+      this._sendTime = Date.now();
+
+      const operation = this.addOperation(resolve, reject);
+
+      let msg = {
+        cmd: "getDrops",
+        channelId,
+        operationId: operation.id,
+      };
+      this._ws.send(JSON.stringify(msg));
+    });
+  }
+
   async deleteDrop(channelId, dropId) {
     await this.verifyConnection();
 
@@ -285,7 +302,7 @@ class GlobalServer extends ChannelServer {
 
       this._ws.on("message", (str) => {
         const data = JSON.parse(str);
-        if (data.cmd == "authResponse") {
+        if (data.cmd == "getDropsResponse" || data.cmd == "authResponse") {
           const operation = this._operations[data.operationId];
           operation.resolve(data);
         } else if (data.cmd == "drops") {

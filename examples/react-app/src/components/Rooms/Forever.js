@@ -41,6 +41,19 @@ export function Forever({ channels, scope }) {
         Drops that exist forever (or until deleted)
       </Typography>
 
+      <Button
+        variant="contained"
+        onClick={async () => {
+          try {
+            const response = await channels.getDrops(`${scope}/messages`);
+            console.log("drops ", response.drops);
+          } catch (error) {
+            console.log("error ", error);
+          }
+        }}>
+        Get Drops
+      </Button>
+
       <TextField
         id="outlined-basic"
         label="Outlined"
@@ -50,6 +63,7 @@ export function Forever({ channels, scope }) {
           setMessage(event.target.value);
         }}
       />
+
       <Button
         variant="contained"
         onClick={() => {
