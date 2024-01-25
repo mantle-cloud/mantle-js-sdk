@@ -75,7 +75,7 @@ class GlobalServer extends ChannelServer {
     return operation;
   }
 
-  catch(listener, channelId, params, jwt = this._accessToken) {
+  catch(channelId, listener, params, jwt = this._accessToken) {
     const sendAddCatch = async (id) => {
       await this.verifyConnection();
 

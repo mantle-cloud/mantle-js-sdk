@@ -35,9 +35,9 @@ class Channels {
     }
   }
 
-  catch(listener, channelId, params, jwt, size = Size.Global) {
+  catch(channelId, listener, params, jwt, size = Size.Global) {
     if (size == Size.Global) {
-      return this._globalServer.catch(listener, channelId, params, jwt);
+      return this._globalServer.catch(channelId, listener, params, jwt);
     } else if (size == Size.Local && !this._localServer) {
       return this._localServer.connect(this, channelId);
     }
