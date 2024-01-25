@@ -1,6 +1,6 @@
 {
   "name": "@mantle-cloud/channels-react",
-  "version": "1.0.27",
+  "version": "1.0.28",
   "description": "Channels",
   "author": "Matthew Ryan <drmatthewryan@gmail.com>",
   "homepage": "https://github.com/mantle-cloud/mantle-js-sdk",
@@ -26,7 +26,7 @@
     "url": "https://github.com/mantle-cloud/mantle-js-sdk/issues"
   },
   "dependencies": {
-    "@mantle-cloud/channels": "^1.2.0",
+    "@mantle-cloud/channels": "^1.3.0",
     "path-browserify": "^1.0.1",
     "react": "^18.2.0"
   },

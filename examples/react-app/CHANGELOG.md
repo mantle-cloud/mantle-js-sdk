@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/example-react@1.0.12...@mantle-cloud/example-react@1.2.0) (2024-01-25)
+
+
+### Features
+
+* add getDrops method ([7519205](https://github.com/mantle-cloud/mantle-js-sdk/commit/7519205ccc6ff7ce57f01e43c1a77f8a1b445968))
+
+
+
+
+
 # [1.1.0](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/example-react@1.0.12...@mantle-cloud/example-react@1.1.0) (2024-01-24)
 
 

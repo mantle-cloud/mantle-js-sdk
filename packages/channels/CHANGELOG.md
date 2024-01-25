@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.10...@mantle-cloud/channels@1.3.0) (2024-01-25)
+
+
+### Bug Fixes
+
+* changed order of parameters in catch function ([2c1ef39](https://github.com/mantle-cloud/mantle-js-sdk/commit/2c1ef3993082024cf5446d4819be5e07d3af3056))
+
+
+### Features
+
+* add getDrops method ([7519205](https://github.com/mantle-cloud/mantle-js-sdk/commit/7519205ccc6ff7ce57f01e43c1a77f8a1b445968))
+
+
+
+
+
 # [1.2.0](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.1.10...@mantle-cloud/channels@1.2.0) (2024-01-24)
 
 
