@@ -309,9 +309,8 @@ class GlobalServer extends ChannelServer {
           const c = this._catches[data.catchId];
 
           if (c) {
-            console.log("SDK: recv drops", data);
             const updateTime = Date.now() - this._sendTime;
-            c.listener(data.drops, null, { updateTime, catchId: data.catchId });
+            c.listener(data.drops ?? [], null, { updateTime, catchId: data.catchId });
           }
         } else if (data.cmd == "error") {
           const operation = this._operations[data.operationId];
