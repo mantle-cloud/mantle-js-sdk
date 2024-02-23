@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.31](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels-react@1.0.30...@mantle-cloud/channels-react@1.0.31) (2024-02-23)
+
+
+### Bug Fixes
+
+* add main field to package ([53cd00b](https://github.com/mantle-cloud/mantle-js-sdk/commit/53cd00bf73aa532907451cc94bd981e7ef2b444a))
+
+
+
+
+
 ## [1.0.30](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels-react@1.0.29...@mantle-cloud/channels-react@1.0.30) (2024-01-25)
 
 **Note:** Version bump only for package @mantle-cloud/channels-react
