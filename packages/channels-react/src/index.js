@@ -24,7 +24,10 @@ export function useChannels({ config }) {
   }
   useEffect(() => {
     if (config) {
+      console.log("CHANNELS: initialising...");
       initialiseChannels();
+    } else {
+      console.log("CHANNELS: config is not defined");
     }
   }, [config]);
 
