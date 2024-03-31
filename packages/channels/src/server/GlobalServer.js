@@ -323,7 +323,7 @@ class GlobalServer extends ChannelServer {
         this._connectionError = null;
         this._eventEmmiter.emit("connected");
 
-        this.authenticate(resolve, reject);
+        // this.authenticate(resolve, reject);
 
         // resolve();
       });

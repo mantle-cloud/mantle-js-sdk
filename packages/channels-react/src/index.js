@@ -23,8 +23,10 @@ export function useChannels({ config }) {
     });
   }
   useEffect(() => {
-    initialiseChannels();
-  }, []);
+    if (config) {
+      initialiseChannels();
+    }
+  }, [config]);
 
   return { endpoint, status, error, Duration, channels, ConnectionStatus };
 }
