@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.3.3...@mantle-cloud/channels@1.4.0) (2024-03-31)
+
+
+### Features
+
+* remove authentication after connection ([37164ce](https://github.com/mantle-cloud/mantle-js-sdk/commit/37164ceb61fec78a48b71b4280aef44c760fbf84))
+
+
+
+
+
 ## [1.3.3](https://github.com/mantle-cloud/mantle-js-sdk/compare/@mantle-cloud/channels@1.3.2...@mantle-cloud/channels@1.3.3) (2024-02-23)
 
 
